@@ -1,0 +1,32 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+               Scanner scan = new Scanner(System.in);
+        Map<String,Integer> map = new HashMap<>();
+        String stringVal;
+        int intValue;
+        int n = scan.nextInt();
+        for(int i=0;i<n;i++){
+            stringVal = scan.next();
+            intValue = scan.nextInt();
+            map.put(stringVal,intValue);
+        }
+        while (scan.hasNext()){
+            String isValidKey = scan.next();
+            if(map.containsKey(isValidKey)) {
+                System.out.println(isValidKey+"="+map.get(isValidKey)); 
+                // What I learned here is EOF and taking user input from MAP or HashMap 
+                // Also learned that we can query map without the help of previous key or values - Yah we can get value or keys without the help of actual input which help us to take
+                // the value of keys and values 
+            }
+            else {
+                System.out.println("Not found");
+            }
+        }
+    }
+}
+
+// Pending...(add flash paper)
