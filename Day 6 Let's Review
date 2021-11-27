@@ -1,0 +1,33 @@
+package com.testing.hello;
+
+import java.awt.*;
+import java.util.Scanner;
+
+import static java.lang.System.out;
+
+public class Hello {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+
+        int T = scan.nextInt();
+
+        while (T-->0){
+            String takeString;
+            takeString = scan.next();
+            char ch[] = takeString.toCharArray();
+            for (int i = 0; i < ch.length; i++) {
+                if (i % 2 == 0) {
+                    System.out.print(ch[i]);
+                }
+            }
+            System.out.print(" ");
+            for (int i = 0; i < ch.length; i++) {
+                if (i % 2 == 1) {
+                    System.out.print(ch[i]);
+                }
+            }
+            System.out.println();
+        }
+
+    }
+}
