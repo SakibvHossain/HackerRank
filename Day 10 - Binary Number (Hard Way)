@@ -1,0 +1,72 @@
+        Scanner scan = new Scanner(System.in);
+        int Decimal = scan.nextInt();
+        int array[] = new int[1000000];
+        int addValue;
+        int i=0;
+        while(Decimal>0){
+            addValue = Decimal % 2;
+            array[i] = addValue;
+            Decimal/=2;
+            i++;
+        }
+        boolean isTrack_1st = true;
+        int count_2= 0;
+        boolean isTrack_2nd = false;
+        int count_1 = 0;
+        boolean makesElseTure = false;
+        int count_1st=0;
+        int count_1st2=0;
+        int count_2nd=0;
+        int count_2nd2=0;
+        for(int j=0;j<array.length;j++){
+            if((array[j]==1)&&isTrack_1st){
+                count_1st++;
+            }else if((array[j]==1)&&isTrack_2nd){
+                count_2nd++;
+                makesElseTure = true;
+            }
+            else {
+                isTrack_1st = false;
+                isTrack_2nd = true;
+                if(makesElseTure){
+                    isTrack_1st = true;
+                }
+
+
+                if(count_1st!=0){
+                    count_1++;
+                    if(count_1==1){
+                        count_1st2=count_1st;
+                    }else{
+                        if(count_1st2<count_1st){
+                            count_1st2=count_1st;
+                        }
+                    }
+                }
+                if(count_2nd!=0){
+                    count_2++;
+                    if(count_2==1){
+                        count_2nd2=count_2nd;
+                    }else{
+                        if(count_2nd2<count_2nd){
+                            count_2nd2=count_2nd;
+                        }
+                    }
+                }
+
+                if(count_1st2!=0){
+                    count_1st = 0;
+                }
+                if(count_2nd2!=0){
+                    count_2nd = 0;
+                }
+            }
+        }
+        if(count_1st2>count_2nd2){
+            System.out.println(count_1st2);
+        }else{
+            System.out.println(count_2nd2);
+        }
+        
+        
+        //logical way hard way... we'll use easy/mideum way called bitwise way
